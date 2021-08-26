@@ -105,19 +105,6 @@ let loop = () => {
     ctx.fillRect(0,0,canvas.width,canvas.height)
     drawGrid()
 
-    for (let i=0; i<grid.length; i++){
-
-        for (let j=0; j<grid[i].length; j++){
-            if (Hover(i,j)){
-
-                ctx.globalAlpha = 0.3
-                ctx.fillStyle = 'red'
-                ctx.fillRect(canvas.width/2+(j-grid[i].length/2)*gridSize, canvas.height/2+(i-grid.length/2)*gridSize*1, gridSize, gridSize)
-                ctx.globalAlpha = 1
-            }
-        }
-    }
-
     switch (WORD_SELECT.value){
         case 'double-row':
             DoubleRow()
