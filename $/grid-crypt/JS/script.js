@@ -122,8 +122,8 @@ let loop = () => {
         case 'double-row':
             DoubleRow()
             break
-        case 'quad-col':
-            QuadCol()
+        case 'six-col':
+            SixCol()
             break
         default:
             break

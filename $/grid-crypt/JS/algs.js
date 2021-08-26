@@ -25,7 +25,7 @@ function DoubleRow(){
     }
 }
 
-function QuadCol(){
+function SixCol(){
 
     let word = Id('word').value
 
