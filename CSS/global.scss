@@ -1,0 +1,111 @@
+body{
+    font-family: sans-serif;
+}
+
+.blue{
+    background-color: #0074ff;
+}
+
+.red{
+    background-color: red;
+}
+
+select{
+    outline: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+textarea{
+    outline: none;
+    font-family: sans-serif;
+}
+
+@media screen and (min-width: 900px){
+    #header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 60px;
+        background-color: black;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 50px;
+        color: white;
+        #mast{
+            font-size: 20px;
+            margin: 0;
+            margin-left: 10px;
+            font-weight: 300;
+        }
+        .menus{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .menu{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-left: 30px;
+                h2{
+                    font-size: 16px;
+                    margin: 0;
+                    margin-right: 10px;
+                    font-weight: 300;
+                }
+                select{
+                    margin: 0;
+                    margin-right: 10px;
+                    font-size: 16px;
+                    padding: 5px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px){
+    #header{
+        #mast{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            padding: 10px;
+            font-size: 20px;
+            font-weight: 400;
+            margin: 0;
+            padding-bottom: 10px;
+            background: black;
+            color: white;
+        }
+        .menus{
+            margin-top: 50px;
+        }
+        .menu{
+            padding-top: 10px;
+            padding-bottom: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            h2{
+                font-size: 16px;
+                font-weight: 400;
+                margin: 0;
+                margin-right: 10px;
+            }
+            select{
+                margin: 0;
+                padding: 5px;
+                font-size: 16px;
+                appearance: none;
+            }
+        }
+    }
+
+}

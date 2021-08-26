@@ -1,0 +1,56 @@
+body {
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  -webkit-transition: 0.1s ease;
+  transition: 0.1s ease;
+}
+
+a:hover {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+#header {
+  background: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
+
+#header #mast {
+  margin-left: 10px;
+}
+
+#header #mast h1 {
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+}
+
+.main {
+  margin: 20px;
+  margin-top: 70px;
+}
+
+.elem {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 400px;
+  border-radius: 10px;
+}
+
+.elem .expo h1 {
+  font-size: 20px;
+  margin: 5px;
+}
+
+.elem .expo p {
+  font-size: 16px;
+  margin: 5px;
+}
+/*# sourceMappingURL=style.css.map */
