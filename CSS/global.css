@@ -1,17 +1,43 @@
 body {
   font-family: sans-serif;
+  background: #0b0018;
 }
 
 .blue {
   background-color: #0074ff;
 }
 
+.blue:hover {
+  background-color: #001aff;
+}
+
 .red {
   background-color: red;
 }
 
+.red:hover {
+  background-color: #c40000;
+}
+
+.green {
+  background-color: #00b919;
+}
+
+.green:hover {
+  background-color: #009908;
+}
+
+.gray {
+  background-color: #a8a8a8;
+}
+
+.gray:hover {
+  background-color: #858585;
+}
+
 select {
   outline: none;
+  border: none;
 }
 
 a {
@@ -35,7 +61,6 @@ textarea {
         -ms-flex-align: center;
             align-items: center;
     margin-bottom: 60px;
-    background-color: black;
     position: fixed;
     top: 0;
     left: 0;
@@ -59,6 +84,7 @@ textarea {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    margin-top: 5px;
   }
   #header .menus .menu {
     display: -webkit-box;
@@ -73,7 +99,7 @@ textarea {
     margin-left: 30px;
   }
   #header .menus .menu h2 {
-    font-size: 16px;
+    font-size: 18px;
     margin: 0;
     margin-right: 10px;
     font-weight: 300;
@@ -81,7 +107,7 @@ textarea {
   #header .menus .menu select {
     margin: 0;
     margin-right: 10px;
-    font-size: 16px;
+    font-size: 18px;
     padding: 5px;
   }
 }
@@ -97,7 +123,6 @@ textarea {
     font-weight: 400;
     margin: 0;
     padding-bottom: 10px;
-    background: black;
     color: white;
   }
   #header .menus {
@@ -125,6 +150,7 @@ textarea {
     font-weight: 400;
     margin: 0;
     margin-right: 10px;
+    color: white;
   }
   #header .menu select {
     margin: 0;

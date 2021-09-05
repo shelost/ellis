@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Grid Crypt </title>
+    <title> Draw Paths </title>
     <link rel="icon" type="image/png" sizes="32x32" href="../../Assets/ellis-32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="../../Assets/ellis-16.png" />
     <link href = '../../CSS/global.css' rel = 'stylesheet'>
-    <link href = 'CSS/crypt.css' rel = 'stylesheet'>
+    <link href = 'CSS/draw.css' rel = 'stylesheet'>
 </head>
 <body>
 
     <div id = 'header'>
 
-        <h1 id = 'mast'> Grid Cryptography </h1>
+        <h1 id = 'mast'> Drawing Paths </h1>
 
         <div class = 'menus'>
             <div class = 'menu'>
@@ -40,47 +40,45 @@
 
     <div class = 'main'>
 
-        <div class = 'col' id = 'grid'>
+        <div id = 'input'>
+
             <canvas id = 'canvas'>
             </canvas>
+
             <div id = 'controls'>
-                <div class = 'row bg'>
-                    <div class = 'row dim'>
-                        <button id = 'dim-x-down' class = 'red circle'> - </button>
-                        <input id = 'dim-x' disabled = 'true'>
-                        <button id = 'dim-x-up' class = 'blue circle'> + </button>
-                    </div>
-                    <p> x </p>
-                    <div class = 'row dim'>
-                        <button id = 'dim-y-down' class = 'red circle'> - </button>
-                        <input id = 'dim-y' disabled = 'true'>
-                        <button id = 'dim-y-up' class = 'blue circle'> + </button>
-                    </div>
-                </div>
-                <div class = 'row bg'>
-                    <button id = 'clear' class = 'blue'>
+                <div class = 'button-row'>
+                    <button id = 'undo' class = 'blue'>
+                        Undo
+                    </button>
+                    <button id = 'clear' class = 'red'>
                         Clear
                     </button>
-                    <button id = 'random' class = 'red'>
-                        Random
+                </div>
+                <div class = 'button-row'>
+                    <button id = 'new' class = 'gray'>
+                        New Example
+                    </button>
+                    <button id = 'check' class = 'green'>
+                        Check
                     </button>
                 </div>
-            </div>
-            <div class = 'row'>
-                <button id = 'toggle' class = 'red'> Hide Key </button>
+
             </div>
         </div>
 
-        <div id = 'display' class = 'display'>
-
-            <div class = 'row'>
-                <p class = 'show'> ← </p>
-                <textarea id = 'word' class = 'text' placeholder='Type a word...'></textarea>
+        <div id = 'display'>
+            <div id = 'result'>
+                <div id = 'img'>
+                    :)
+                </div>
+                <h1> Results will show up here. </h1>
             </div>
-            <p class = 'hide'> ↓ </p>
-            <div class = 'row'>
-                <p class = 'show'> → </p>
-                <textarea id = 'number' class = 'text' disabled></textarea>
+
+            <div id = 'info'>
+                <div class = 'row'>
+                    <h2> Strokes made: </h2>
+                    <h2 class = 'variable' id = 'strokes'> # </h2>
+                </div>
             </div>
         </div>
 
@@ -90,7 +88,7 @@
 
 <script src = '../../JS/functions.js'></script>
 <script src = '../../JS/grid.js'></script>
-<script src = 'JS/crypt_algs.js'></script>
-<script src = 'JS/crypt.js'></script>
+<script src = 'JS/draw_algs.js'></script>
+<script src = 'JS/draw.js'></script>
 
 </html>

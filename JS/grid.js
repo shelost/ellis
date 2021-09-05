@@ -25,7 +25,7 @@ function ErrorMsg(msg, color, stroke){
     if (color){
         ctx.fillStyle = color
     }else{
-        ctx.fillStyle = '#e0e0e0'
+        ctx.fillStyle = '#f0f0f0'
     }
     ctx.fillRect(0,0, canvas.width, canvas.height)
     if (stroke){
@@ -39,12 +39,12 @@ function ErrorMsg(msg, color, stroke){
 
 }
 
-function drawGrid(){
+function drawGrid(cellColors, lineColor){
 
     if (grid.length > grid[0].length){
-        gridSize = canvas.width*0.8/grid.length
+        gridSize = canvas.width*0.9/grid.length
     }else{
-        gridSize = canvas.width*0.8/grid[0].length
+        gridSize = canvas.width*0.9/grid[0].length
     }
 
     for (let i=0; i<grid.length; i++){
@@ -54,7 +54,21 @@ function drawGrid(){
             }else{
                 ctx.fillStyle = 'black'
             }
+
+            if (cellColors){
+                for (let n=0; n<cellColors.length; n++){
+                    let color = cellColors[n]
+
+                    if (grid[i][j] == n){
+                        ctx.fillStyle = color
+                    }
+                }
+            }
+
             ctx.strokeStyle = 'white'
+            if (lineColor){
+                ctx.strokeStyle = lineColor
+            }
             ctx.lineWidth = 0.2
             ctx.fillRect(canvas.width/2+(j-grid[i].length/2)*gridSize, canvas.height/2+(i-grid.length/2)*gridSize*1, gridSize, gridSize)
             ctx.strokeRect(canvas.width/2+(j-grid[i].length/2)*gridSize, canvas.height/2+(i-grid.length/2)*gridSize*1, gridSize, gridSize)

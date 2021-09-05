@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  background: #0b0018;
 }
 
 a {
@@ -10,47 +11,199 @@ a {
 }
 
 a:hover {
-  color: rgba(0, 0, 0, 0.5);
+  opacity: 0.9;
 }
 
-#header {
-  background: black;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
+@media screen and (min-width: 900px) {
+  #header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 10px;
+    background-color: black;
+    color: white;
+    padding: 20px;
+  }
+  #header #mast {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #header #mast img {
+    height: 45px;
+    width: 45px;
+    background: white;
+    padding: 1px;
+    border-radius: 50px;
+  }
+  #header #mast h1 {
+    font-size: 28px;
+    margin: 0;
+    margin-left: 15px;
+    font-weight: 300;
+  }
+  .main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .elem {
+    padding: 5px;
+    margin-bottom: 20px;
+    width: 30vw;
+    margin: 10px;
+  }
+  .elem .img {
+    width: 30vw;
+    height: 15vw;
+    background-size: cover;
+    background-color: white;
+    border-radius: 5px;
+  }
+  .elem .expo {
+    margin-top: 10px;
+    padding: 5px;
+    color: white;
+  }
+  .elem .expo .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .elem .expo .row h1 {
+    font-size: 18px;
+    margin: 5px;
+    font-weight: 500;
+  }
+  .elem .expo .row h2 {
+    font-size: 16px;
+    font-weight: 300;
+    margin: 5px;
+    color: yellow;
+  }
+  .elem .expo p {
+    font-size: 16px;
+    margin: 5px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.5);
+  }
 }
 
-#header #mast {
-  margin-left: 10px;
-}
-
-#header #mast h1 {
-  font-size: 18px;
-  font-weight: 500;
-  color: white;
-}
-
-.main {
-  margin: 20px;
-  margin-top: 70px;
-}
-
-.elem {
-  background: rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  margin-bottom: 20px;
-  width: 400px;
-  border-radius: 10px;
-}
-
-.elem .expo h1 {
-  font-size: 20px;
-  margin: 5px;
-}
-
-.elem .expo p {
-  font-size: 16px;
-  margin: 5px;
+@media screen and (max-width: 900px) {
+  #header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-color: black;
+    height: 80px;
+    color: white;
+  }
+  #header #mast {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-right: 5px;
+  }
+  #header #mast img {
+    height: 30px;
+    width: 30px;
+    background: white;
+    padding: 1px;
+    border-radius: 50px;
+  }
+  #header #mast h1 {
+    font-size: 25px;
+    margin: 0;
+    margin-left: 10px;
+    font-weight: 300;
+  }
+  .main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .elem {
+    padding: 5px;
+    margin-bottom: 20px;
+    width: 90vw;
+    margin: 10px;
+  }
+  .elem .img {
+    width: 90vw;
+    height: 45vw;
+    background-size: cover;
+    background-color: white;
+    border-radius: 5px;
+  }
+  .elem .expo {
+    margin-top: 5px;
+    padding: 5px;
+    color: white;
+  }
+  .elem .expo .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .elem .expo .row h1 {
+    font-size: 18px;
+    margin: 5px;
+    font-weight: 500;
+  }
+  .elem .expo .row h2 {
+    font-size: 16px;
+    font-weight: 300;
+    margin: 5px;
+    color: yellow;
+  }
+  .elem .expo p {
+    font-size: 16px;
+    margin: 5px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.5);
+  }
 }
 /*# sourceMappingURL=style.css.map */

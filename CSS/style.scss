@@ -1,5 +1,6 @@
 body{
     font-family: sans-serif;
+    background: #0b0018;
 }
 
 a{
@@ -7,45 +8,163 @@ a{
     color: black;
     transition: 0.1s ease;
     &:hover{
-        color: rgba(black, 0.5);
+        opacity: 0.9;
     }
 }
 
-#header{
-    background: black;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    #mast{
-        margin-left: 10px;
-        h1{
-            font-size: 18px;
-            font-weight: 500;
+@media screen and (min-width: 900px){
+
+    #header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        background-color: black;
+        color: white;
+        padding: 20px;
+        #mast{
+            display: flex;
+            align-items: center;
+            img{
+                height: 45px;
+                width: 45px;
+                background: rgba(white, 1);
+                padding: 1px;
+                border-radius: 50px;
+            }
+            h1{
+                font-size: 28px;
+                margin: 0;
+                margin-left: 15px;
+                font-weight: 300;
+            }
+        }
+    }
+
+    .main{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .elem{
+        //background: white;
+        padding: 5px;
+        margin-bottom: 20px;
+        width: 30vw;
+        margin: 10px;
+        .img{
+            width: 30vw;
+            height: 15vw;
+            background-size: cover;
+            background-color: white;
+            border-radius: 5px;
+        }
+        .expo{
+            margin-top: 10px;
+            padding: 5px;
             color: white;
+            .row{
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+                h1{
+                    font-size: 18px;
+                    margin: 5px;
+                    font-weight: 500;
+                }
+                h2{
+                    font-size: 16px;
+                    font-weight: 300;
+                    margin: 5px;
+                    color: yellow;
+                }
+            }
+            p{
+                font-size: 16px;
+                margin: 5px;
+                font-weight: 300;
+                color: rgba(white, 0.5);
+            }
         }
     }
 }
 
-.main{
-    margin: 20px;
-    margin-top: 70px;
-}
+@media screen and (max-width: 900px){
 
-.elem{
-    background: rgba(black, 0.1);
-    padding: 10px;
-    margin-bottom: 20px;
-    width: 400px;
-    border-radius: 10px;
-    .expo{
-        h1{
-            font-size: 20px;
-            margin: 5px;
+    #header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        height: 80px;
+        color: white;
+        #mast{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 5px;
+            img{
+                height: 30px;
+                width: 30px;
+                background: rgba(white, 1);
+                padding: 1px;
+                border-radius: 50px;
+            }
+            h1{
+                font-size: 25px;
+                margin: 0;
+                margin-left: 10px;
+                font-weight: 300;
+            }
         }
-        p{
-            font-size: 16px;
-            margin: 5px;
+    }
+
+    .main{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .elem{
+        padding: 5px;
+        margin-bottom: 20px;
+        width: 90vw;
+        margin: 10px;
+        .img{
+            width: 90vw;
+            height: 45vw;
+            background-size: cover;
+            background-color: white;
+            border-radius: 5px;
+        }
+        .expo{
+            margin-top: 5px;
+            padding: 5px;
+            color: white;
+            .row{
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+                h1{
+                    font-size: 18px;
+                    margin: 5px;
+                    font-weight: 500;
+                }
+                h2{
+                    font-size: 16px;
+                    font-weight: 300;
+                    margin: 5px;
+                    color: yellow;
+                }
+            }
+            p{
+                font-size: 16px;
+                margin: 5px;
+                font-weight: 300;
+                color: rgba(white, 0.5);
+            }
         }
     }
 }
+
