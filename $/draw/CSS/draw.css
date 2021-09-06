@@ -29,6 +29,7 @@
   #input #canvas {
     width: 40vw;
     height: 40vw;
+    cursor: none;
   }
   #input #controls {
     width: 40vw;
@@ -115,14 +116,72 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   #display #info .row h2 {
     font-size: 18px;
     font-weight: 400;
+    margin: 10px;
+    margin-left: 0;
   }
   #display #info .row h2.variable {
     margin-left: 5px;
     font-weight: 600;
+  }
+  #display #info .row .circle {
+    height: 25px;
+    width: 25px;
+    font-size: 20px;
+    color: white;
+    border-radius: 20px;
+    border: none;
+  }
+  #display #info .row #apply {
+    border: none;
+    padding: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: #505050;
+    margin-left: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+  }
+  #display #info .row #apply:hover {
+    background: black;
+  }
+  #display #info .row #nodes {
+    margin: 0;
+    text-align: center;
+    font-weight: 600;
+    width: 30px;
+  }
+  .alert {
+    color: red;
+    -webkit-animation: pulsate 0.2s ease infinite alternate;
+            animation: pulsate 0.2s ease infinite alternate;
+  }
+  @-webkit-keyframes pulsate {
+    from {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+    to {
+      -webkit-transform: scale(1.2);
+              transform: scale(1.2);
+    }
+  }
+  @keyframes pulsate {
+    from {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+    to {
+      -webkit-transform: scale(1.2);
+              transform: scale(1.2);
+    }
   }
 }
 /*# sourceMappingURL=draw.css.map */

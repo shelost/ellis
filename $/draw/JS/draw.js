@@ -1,13 +1,11 @@
 let prevX, prevY
 let mousedown = false
 let Points = []
-
 let Strokes = 0
-let Limit = 2
-let N = 1
-let ALGORITHM = connectOrder_key
+let Limit = 1
+let N = 3
+let ALGORITHM = territory
 let KEY = ALGORITHM(N)
-
 
 // DRAW
 
@@ -40,12 +38,27 @@ function Point(x,y,n){
 }
 
 function draw(){
-    mousedown = true
 
-    if (onGrid(effX, effY) && Strokes < Limit){
-        Points.push(new Point(effX, effY, 1))
+    if (onGrid(effX, effY)){
+
+        if (Strokes < Limit){
+
+            if (!mousedown){
+                Points.push([])
+            }
+            mousedown = true
+            Points[Points.length-1].push(new Point(effX, effY, 1))
+
+        }else{
+
+            Id('strokes').classList.add('alert')
+
+            setTimeout(()=> {
+                Id('strokes').classList.remove('alert')
+            }, 3000)
+
+        }
     }
-
 }
 
 function onCanvas(x,y){
@@ -69,7 +82,7 @@ function onGrid(x,y){
 
 function stop(){
     mousedown = false
-    Points.push(new Point(-1,-1, 0))
+    Strokes = Points.length
 }
 
 function move(e){
@@ -87,16 +100,13 @@ function move(e){
 function Resize(){
 
     for (let i=0; i<Points.length; i++){
+        for (let j=0; j<Points[i].length; j++){
+            p = Points[i][j]
 
-        p = Points[i]
-
-        p.x = p.rx*canvas.width
-        p.y = p.ry*canvas.height
+            p.x = p.rx*canvas.width
+            p.y = p.ry*canvas.height
+        }
     }
-}
-
-function strokeCount(){
-
 }
 
 window.addEventListener('mousedown', draw)
@@ -104,14 +114,17 @@ window.addEventListener('mouseup', stop)
 window.addEventListener('mousemove', move)
 window.addEventListener('resize', Resize)
 Id('canvas').addEventListener("mouseleave", () => {
-    Points.push(new Point(-1,-1, 0))
+    /*Points.push(new Point(-1,-1, 0))*/
 })
+
+
+
 
 // PUZZLE
 
-function contact(i,j,n){
+function contact(i,j,m,n){
 
-    let p = Points[n]
+    let p = Points[m][n]
 
     if (p.x > canvas.width/2+(j-grid[i].length/2)*gridSize && p.x < canvas.width/2+(j-grid[i].length/2+1)*gridSize &&
         p.y > canvas.height/2+(i-grid.length/2)*gridSize && p.y < canvas.height/2+(i-grid.length/2+1)*gridSize){
@@ -127,63 +140,82 @@ function connectOrder_check(){
     let result = {value: false, msg: 'hello'}
 
     // Actual Order
+
+    // Cycle through points
     for (let i=0; i<Points.length; i++){
-        let p = Points[i]
 
-        for (let j=0; j<KEY.length; j++){
-            let k = KEY[j]
+        for (let j=0; j<Points[i].length; j++){
+            let p = Points[i][j]
 
-            if (contact(k.i, k.j, i)){
-                // Check for duplicates
-                /*
-                if (contacts.length > 1 && contacts[contacts.length-1].i != k.i && contacts[contacts.length-1].j != k.j){
-                    contacts.push({i: k.i, j: k.j, n: i})
-                }
-                */
+            // Cycle through key
+            for (let v=0; v<KEY.length; v++){
 
-                if (contacts.length > 0){
-                    if (contacts[contacts.length-1].i != k.i && contacts[contacts.length-1].j != k.j){
+                let k = KEY[v]
+
+                if (contact(k.i, k.j, i, j)){
+
+                    // Check for duplicates
+                    if (contacts.length > 0){
+
+                        let duplicate = false
+
+                        for (let z=0;z<contacts.length; z++){
+                            let c = contacts[z]
+
+                            if (c.i == k.i && c.j == k.j){
+                                duplicate = true
+                            }
+                        }
+
+                        if (!duplicate){
+                            contacts.push({i: k.i, j: k.j, n: i})
+                        }
+
+                    }else{
                         contacts.push({i: k.i, j: k.j, n: i})
                     }
-                }else{
-                    contacts.push({i: k.i, j: k.j, n: i})
                 }
-
-
             }
         }
     }
 
-    // Check if inclusive of correct order
-    for (let i=0; i<KEY.length; i++){
-        let k = KEY[i]
+    // Check if correct order
+    if (contacts.length == KEY.length){
+        for (let i=0; i<contacts.length; i++){
+            let c = contacts[i]
+            let k = KEY[i]
 
-        for (let j=0; j<contacts.length; j++){
-            let p = contacts[j]
+            result.value = true
+            result.msg = "Correct"
 
+            if (c.i != k.i || c.j != k.j){
+                result.value = false
+                result.msg = "Incorrect Order"
+            }
         }
+    }else{
+        result.value = false
+        result.msg = "Did not hit all the points"
     }
-
-    console.log(KEY)
-    console.log(contacts)
 
     return result
 }
 
-function equalArrays(a,b){
-    return Array.isArray(a) &&
-    Array.isArray(b) &&
-    a.length === b.length &&
-    a.every((val, index) => val === b[index]);
-}
+
+
+
+// CONTROLS
 
 function Check(){
 
     let alg
 
     switch(ALGORITHM){
-        case connectOrder_key:
+        case connectOrder:
             alg = connectOrder_check()
+            break
+        case territory:
+            alg = territory_check()
             break
         default:
             alg = true
@@ -191,16 +223,16 @@ function Check(){
     }
 
     if (alg.value){
-        Id('display').innerHTML =
+        Id('result').innerHTML =
         `
         <div id = 'img'> :) </div>
-        <h1> Correct </h1>
+        <h1> ${alg.msg} </h1>
         `
     }else{
-        Id('display').innerHTML =
+        Id('result').innerHTML =
         `
         <div id = 'img'> :( </div>
-        <h1> Incorrect </h1>
+        <h1> ${alg.msg} </h1>
         `
     }
 }
@@ -212,31 +244,39 @@ function clearPoints(){
 
 function newExample(){
     Clear()
-    let KEY = ALGORITHM(N)
+    clearPoints()
+    KEY = ALGORITHM(N)
     setProblem(KEY)
 }
-
-// CONTROLS
 
 function Undo(){
 
     Points.pop()
-    Points.pop()
-    Points.pop()
-    Strokes -= 1
-    console.log(Strokes)
-
-    if (Points.length > 3){
-        while (Points[Points.length-1].x > 0){
-            Points.pop()
-        }
-    }
+    Strokes = Points.length
 }
 
 Id('undo').onclick = Undo
 Id('clear').onclick = clearPoints
 Id('check').onclick = Check
 Id('new').onclick = newExample
+
+Id('node-plus').onclick = () => {
+    if (N < 7){
+        N++
+    }
+}
+
+Id('node-minus').onclick = () => {
+    if (N > 1){
+        N--
+    }
+}
+
+Id('apply').onclick = newExample
+
+
+
+
 
 // ACTIONS
 
@@ -247,6 +287,9 @@ let loop = () => {
 
     setDimensions()
 
+    Id('strokes').innerHTML = `${Strokes} / ${Limit}`
+    Id('nodes').innerHTML = `${N}`
+
     ctx.fillStyle = 'white'
     ctx.fillRect(0,0,canvas.width,canvas.height)
 
@@ -255,32 +298,35 @@ let loop = () => {
 
     for (let i=0; i<Points.length; i++){
 
-        let p = Points[i]
+        for (let j=0; j<Points[i].length; j++){
 
-        if (i > 0){
+            let p = Points[i][j]
 
-            let prev = Points[i-1]
+            if (j > 0){
 
-            if (prev.x > 0 && p.x > 0){
-                ctx.strokeStyle = 'red'
-                ctx.lineWidth = 5
-                ctx.lineCap = 'round'
-                p.line(Points[i-1])
+                let prev = Points[i][j-1]
+
+                if (prev.x > 0 && p.x > 0){
+                    ctx.strokeStyle = 'red'
+                    ctx.lineWidth = 5
+                    ctx.lineCap = 'round'
+                    p.line(prev)
+                }
             }
         }
     }
 
-
-    /*
-    switch (WORD_SELECT.value){
-        case 'double-row':
-            break
-        case 'six-col':
-            break
-        default:
-            break
+    ctx.fillStyle = 'red'
+    ctx.globalAlpha = 1
+    if (Strokes > Limit-1){
+        ctx.globalAlpha = 0.5
     }
-    */
+    let r = 5
+    if (mousedown){
+        r = 10
+    }
+    ctx.arc(effX, effY, r, 0, Math.PI*2)
+    ctx.fill()
 
     window.requestAnimationFrame(loop)
 }

@@ -1,6 +1,7 @@
 let canvas = Id('canvas')
 let ctx = canvas.getContext('2d')
-let grid, gridSize, MX, MY, effX, effY, rect
+let grid, gridSize, MX, MY, effX, effY
+let rect = Id('canvas').getBoundingClientRect()
 
 let Cols = 13, Rows = 13
 

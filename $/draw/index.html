@@ -18,20 +18,10 @@
 
         <div class = 'menus'>
             <div class = 'menu'>
-                <h2> Text Algorithm: </h2>
-                <select name = 'word-algs' id = 'word-algs'>
-                    <option value = 'double-row' selected> Double Row </option>
-                    <option value = 'six-col'> Six Column </option>
-                </select>
-            </div>
-
-            <div class = 'menu'>
-                <h2> Number Algorithm: </h2>
+                <h2> Problem: </h2>
                 <select name = 'num-algs' id = 'num-algs'>
-                    <option value = 'count'> Count </option>
-                    <option value = 'abacus'> Abacus (Reverse) </option>
-                    <option value = 'difference-row'> Row Difference Sum</option>
-                    <option value = 'distance-origin' selected> Origin Distance Sum </option>
+                    <option value = 'count' selected> connectOrder </option>
+                    <option value = 'abacus'> Territory </option>
                 </select>
             </div>
         </div>
@@ -55,6 +45,9 @@
                     </button>
                 </div>
                 <div class = 'button-row'>
+                    <div class = 'row'>
+
+                    </div>
                     <button id = 'new' class = 'gray'>
                         New Example
                     </button>
@@ -78,6 +71,17 @@
                 <div class = 'row'>
                     <h2> Strokes made: </h2>
                     <h2 class = 'variable' id = 'strokes'> # </h2>
+                </div>
+                <div class = 'row'>
+                    <h2> Node count: </h2>
+                    <div class = 'row'>
+                        <button id = 'node-minus' class = 'red circle'> - </button>
+                        <h2 id = 'nodes'> # </h2>
+                        <button id = 'node-plus' class = 'blue circle'> + </button>
+                    </div>
+                    <button id = 'apply'>
+                        Apply
+                    </button>
                 </div>
             </div>
         </div>
