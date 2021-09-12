@@ -3,8 +3,8 @@ let mousedown = false
 let Points = []
 let Strokes = 0
 let Limit = 1
-let N = 3
-let ALGORITHM = territory
+let N = 2
+let ALGORITHM = connectOrder
 let KEY = ALGORITHM(N)
 
 // DRAW
