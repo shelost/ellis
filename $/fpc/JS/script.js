@@ -11,6 +11,10 @@ var SLIDER = Id('image-size')
 
 SLIDER.value = (window.innerWidth-150)/12
 
+if (window.innerWidth < 900){
+    SLIDER.value = window.innerWidth/2.3
+}
+
 // Show Problems
 
 fetchProblems(24)
@@ -43,7 +47,9 @@ showResults()
 var sortable = Sortable.create(Main,{
     animation: 150,
     dragoverBubble: true,
+    disabled: false
 });
+
 
 /*
 var sortable = Sortable.create(Controls,{
@@ -90,6 +96,12 @@ const loop = () => {
     }
 
     Id('image-size-value').innerHTML = SLIDER.value
+
+    if (window.innerWidth > 900){
+        sortable.option("disabled", false)
+    }else{
+        sortable.option("disabled", true)
+    }
 
     window.requestAnimationFrame(loop)
 }
