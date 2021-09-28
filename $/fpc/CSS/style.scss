@@ -62,10 +62,10 @@ button{
     }
 
     #controls{
-        width: 100%;
         position: fixed;
-        left: 0;
+        left: 5px;
         top: 40px;
+        width: 100%;
         padding-top: 15px;
         padding-bottom: 10px;
         background: #0b0018;
@@ -99,7 +99,7 @@ button{
             #num-results{
                 font-size: 15px;
                 font-weight: 300;
-                margin-left: 15px;
+                margin-left: 5px;
                 margin-right: 5px;
             }
         }
