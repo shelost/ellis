@@ -15,6 +15,16 @@ if (window.innerWidth < 900){
     SLIDER.value = window.innerWidth/2.3
 }
 
+window.onload = () => {
+    if (localStorage.getItem("reload") == 0){
+        window.location.reload()
+        localStorage.setItem("reload", 1)
+    }
+    setTimeout(()=> {
+        localStorage.setItem("reload", 0)
+    },1000)
+}
+
 // Show Problems
 
 fetchProblems(24)
