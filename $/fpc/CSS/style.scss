@@ -30,7 +30,7 @@ button{
     width: 0;
 }
 
-@media screen and (min-width: 900px){
+@media screen and (min-width: 800px){
 
     #header{
         display: flex;
@@ -239,7 +239,7 @@ button{
     }
 }
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 800px){
 
     #header{
         display: none;

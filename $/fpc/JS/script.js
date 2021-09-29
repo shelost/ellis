@@ -11,7 +11,7 @@ var SLIDER = Id('image-size')
 
 SLIDER.value = (window.innerWidth-150)/12
 
-if (window.innerWidth < 900){
+if (window.innerWidth < 800){
     SLIDER.value = window.innerWidth/2.3
 }
 
@@ -107,7 +107,7 @@ const loop = () => {
 
     Id('image-size-value').innerHTML = SLIDER.value
 
-    if (window.innerWidth > 900){
+    if (window.innerWidth > 800){
         sortable.option("disabled", false)
     }else{
         sortable.option("disabled", true)
